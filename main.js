@@ -1,5 +1,7 @@
 
 /*created by prashant shukla */
+var wristx = 0;
+var wristy = 0;
 
 var paddle2 =10,paddle1=10;
 
@@ -32,6 +34,21 @@ function setup(){
 	poseNet.on('pose' , gotPoses);
 
 }
+
+
+function gotPoses(results){
+
+	console.log(results);
+	
+	wristx = results[0].pose.rightwrist.x;
+  wristy = results[0].pose.rightwrist.y;
+
+	console.log("wristX = " + wristx + " and wristY = " + wristy);
+
+}
+
+
+
 function modelLoaded(){
 
 	console.log("𝑀𝑜𝒹𝑒𝓁 𝒽𝒶𝓈 𝓁𝑜𝒶𝒹𝑒𝒹");
@@ -78,6 +95,9 @@ function draw(){
    
    //function move call which in very important
     move();
+
+
+    
 }
 
 
