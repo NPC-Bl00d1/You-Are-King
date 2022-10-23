@@ -26,6 +26,7 @@ var ball = {
 function setup(){
   var canvas =  createCanvas(700,600);
   canvas.parent("canvas");
+  game_status="";
   video=createCapture(VIDEO);
 	video.size(600,300);
   video.hide();
@@ -57,6 +58,12 @@ function modelLoaded(){
 
 
 function draw(){
+
+  if(game_status == "start"){
+
+
+    
+  }
 
  background(0); 
 
@@ -195,4 +202,12 @@ function paddleInCanvas(){
   if(mouseY < 0){
     mouseY =0;
   }  
+}
+
+
+function play(){
+
+game_status = "start";
+document.getElementById("status").innerHTML = "Game is Loaded"
+
 }
